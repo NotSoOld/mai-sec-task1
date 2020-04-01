@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to MAISec Bank! v1.0 vuln</title>
+</head>
+<body>
+    <h1 th:text="'Welcome to MAISec Bank, ' + ${currentUserName} + '!'"></h1>
+    <p th:text="'You have $' + ${myMoneyAmount} + ' in your account.'"></p>
+    <p><a href="/logout">Log out</a></p>
+    <br>
+    <form action="/addbalance" method="post">
+        <label>Add to balance</label>
+        <input name="amount" type="number"/>
+        <input type="submit" value="Add!">
+    </form>
+
+    <h2>Transfer options</h2>
+    <form action="/transfer" method="post">
+        <label>Account Number</label>
+        <input name="accountName" type="text"/>
+
+        <label>Amount</label>
+        <input name="amount" type="number"/>
+
+        <input type="submit" value="Make transfer!">
+    </form>
+    <br>
+    <br>
+    <h2>Your transaction log:</h2>
+    <div th:utext="${transactionLog}"></div>
+</body>
+</html>

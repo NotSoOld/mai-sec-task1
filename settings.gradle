@@ -1,0 +1,5 @@
+include ':task-forum-vuln'
+include ':task-forum-patched'
+include ':task-bank-vuln'
+include ':task-bank-patched'
+include ':task-attacker-site'

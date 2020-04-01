@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to MAISec Forum! v2.0 patched</title>
+</head>
+<body>
+    <h1 th:text="'Welcome to MAISec Forum, ' + ${currentUserName} + '!'"></h1>
+    <p><a href="/logout">Log out</a></p>
+    <br>
+    <h2>Most recently updated threads:</h2>
+    <div th:utext="${recentThreadLinks}"></div>
+
+    <h2>Threads search:</h2>
+    <form action="/search" method="post">
+        <input name="searchString" type="text"/>
+        <input type="submit" value="Find">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+    </form>
+</body>
+</html>
